@@ -15,7 +15,7 @@ import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import { Link } from 'react-router-dom';
 
-import routesConfig from '~/config/routes';
+import config from '~/config/routes';
 import Button from '~/components/Button';
 import styles from './Header.module.scss';
 import { InboxIcon, MessageIcon } from '~/components/Icons';
@@ -98,7 +98,7 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <Link className={cx('logo-link')} to={routesConfig.home}>
+                <Link className={cx('logo-link')} to={config.home}>
                     <img src={images.logo.default} alt="TikTok Logo" />
                 </Link>
 
@@ -134,7 +134,7 @@ function Header() {
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
                             <Image
-                                className={cx('user-avartar')}
+                                className={cx('user-avatar')}
                                 src="https://lh3.googleusercontent.com/a/ACg8ocL8Uo5tbwx6hSLaKGF-JQim6LJSpbCjEAeV5RY6OGjEaA=s96-c"
                                 alt="Nguyen Trung Hau"
                             />
