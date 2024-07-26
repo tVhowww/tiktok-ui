@@ -20,6 +20,10 @@
     justify-content: space-between;
 }
 
+.logo-link {
+    display: flex;
+}
+
 // Action
 .actions {
     display: flex;
@@ -70,6 +74,7 @@
     border-radius: 10px;
     font-size: 1.4rem;
     font-weight: 600;
+    font-family: var(--font-family);
     color: var(--white);
     background-color: var(--primary);
 }
