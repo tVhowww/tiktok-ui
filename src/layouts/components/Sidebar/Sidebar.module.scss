@@ -1,0 +1,15 @@
+.wrapper {
+    // width: 356px;
+    width: 30%;
+    padding: 20px 0 26px 8px;
+    margin-left: -18px;
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    padding: 3px;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer;
+}
