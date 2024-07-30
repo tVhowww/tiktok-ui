@@ -15,6 +15,7 @@ import {
 } from '~/components/Icons';
 import Image from '~/components/Image';
 import config from '~/config';
+import SuggestedAccounts from '~/components/SuggestedAccounts';
 
 const cx = classNames.bind(styles);
 
@@ -57,6 +58,9 @@ function Sidebar() {
                     }
                 />
             </Menu>
+
+            <SuggestedAccounts label="Suggested accounts" />
+            <SuggestedAccounts label="Following accounts" />
         </aside>
     );
 }
