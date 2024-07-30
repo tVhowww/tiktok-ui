@@ -13,6 +13,7 @@
 .account-item {
     display: flex;
     padding: 8px;
+    cursor: pointer;
 }
 
 .avatar {
@@ -30,19 +31,20 @@
 .nickname {
     margin-top: 0;
     font-size: 1.6rem;
-    color: #161823;
+    color: var(--text-color);
     line-height: 1;
 }
 
 .check {
     margin-left: 4px;
     font-size: 1.4rem;
-    color: #20d5ec;
+    color: var(--check-color);
 }
 
 .name {
     font-size: 1.2rem;
-    opacity: #161823bf;
+    color: var(--text-color);
+    opacity: 0.749;
 }
 
 .more-btn {
