@@ -27,12 +27,14 @@
 
 .logo-link {
     display: flex;
+    min-width: 300px;
 }
 
 // Action
 .actions {
     display: flex;
     align-items: center;
+    min-width: 300px;
 }
 
 .more-btn {
@@ -58,6 +60,7 @@
     padding: 7px 14px;
     font-weight: 600;
     margin-right: 24px;
+    box-shadow: none;
 }
 
 .user-avatar {

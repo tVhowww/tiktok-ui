@@ -1,0 +1,13 @@
+.wrapper {
+    color: rgba(22, 24, 35, 0.5);
+    font-weight: 500;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    display: inline-block;
+    margin-right: 6px;
+    margin-top: 5px;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}

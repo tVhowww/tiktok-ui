@@ -1,8 +1,19 @@
 .wrapper {
-    // width: 356px;
-    width: 30%;
-    padding: 20px 0 26px 8px;
+    width: 356px;
     margin-left: -18px;
+}
+
+.inner-fixed {
+    width: inherit;
+    position: fixed;
+    top: 60px;
+    bottom: 0;
+    z-index: 9999;
+    background-color: var(--white-color);
+}
+
+.content {
+    padding: 20px 0 26px 8px;
 }
 
 .user-avatar {
@@ -12,4 +23,20 @@
     object-fit: cover;
     border-radius: 50%;
     cursor: pointer;
+}
+
+// Scrollbar custom
+.scrollbar-view {
+    overflow: hidden scroll !important;
+    margin-bottom: 0 !important;
+}
+.scrollbar-track {
+    top: 0;
+    bottom: 0;
+    right: 0;
+    transition: opacity 0.5s !important;
+}
+.scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(22, 24, 35, 0.06);
 }
