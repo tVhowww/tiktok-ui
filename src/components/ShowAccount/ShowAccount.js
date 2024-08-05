@@ -5,12 +5,18 @@ import AccountItem from '../SuggestedAccounts/AccountItem';
 
 const cx = classNames.bind(styles);
 
-function ShowAccount({ data, hoverActivate }) {
+function ShowAccount({ data, hoverActivate, btnTitle, onClick }) {
     return (
         <div className={cx('content')}>
             {data.map((item, index) => (
                 <AccountItem key={index} data={item} hoverActivate={hoverActivate} />
             ))}
+
+            {data && data.length > 0 && (
+                <p className={cx('more-btn')} onClick={onClick}>
+                    {btnTitle}
+                </p>
+            )}
         </div>
     );
 }

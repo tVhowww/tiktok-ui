@@ -16,7 +16,7 @@ function SuggestedAccounts({ label }) {
     const { totalLoadSuggested: total, defaultShowSuggested: show } = config.accounts;
 
     const currentItems = seeAll ? accounts : accounts.slice(0, show);
-
+    const btnTitle = seeAll ? 'Hide less' : 'See more';
     const options = {
         hoverActivate: true,
     };
@@ -32,13 +32,15 @@ function SuggestedAccounts({ label }) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
+    const handleToggleSeeAll = () => {
+        setSeeAll(!seeAll);
+    };
+
     return (
         <div className={cx('wrapper')}>
             <p className={cx('label')}>{label}</p>
 
-            <ShowAccount data={currentItems} {...options} />
-
-            <p className={cx('more-btn')}>See all</p>
+            <ShowAccount data={currentItems} btnTitle={btnTitle} onClick={handleToggleSeeAll} {...options} />
         </div>
     );
 }

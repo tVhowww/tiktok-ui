@@ -7,6 +7,7 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 import Button from '~/components/Button';
 import Image from '~/components/Image';
 import styles from './AccountPreview.module.scss';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
@@ -17,14 +18,18 @@ function AccountPreview({ data, children, className }) {
                 <PopperWrapper>
                     <div className={cx('wrapper')}>
                         <div className={cx('header')}>
-                            <Image className={cx('avatar')} src={data?.avatar} alt={data?.first_name} />
-                            <Button className={cx('follow-btn')} outline>
+                            <Link to={`/@${data.nickname}`}>
+                                <Image className={cx('avatar')} src={data?.avatar} alt={data?.first_name} />
+                            </Link>
+                            <Button className={cx('follow-btn')} primary>
                                 Follow
                             </Button>
                         </div>
                         <div className={cx('body')}>
                             <p className={cx('nickname')}>
-                                <strong>{data?.nickname}</strong>
+                                <Link to={`/@${data.nickname}`}>
+                                    <strong>{data?.nickname}</strong>
+                                </Link>
                                 {data?.tick && <FontAwesomeIcon className={cx('check')} icon={faCheckCircle} />}
                             </p>
                             <p className={cx('name')}>{`${data.first_name} ${data.last_name}`}</p>
