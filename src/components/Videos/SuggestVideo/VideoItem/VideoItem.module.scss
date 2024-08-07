@@ -1,0 +1,112 @@
+.wrapper {
+    display: flex;
+    position: relative;
+    padding: 20px 0;
+
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        top: initial;
+        height: 1px;
+        background-color: rgba(22, 24, 35, 0.2);
+        transform: scaleY(0.5);
+    }
+}
+
+.avatar {
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #ddd;
+}
+
+.big-avatar {
+    height: fit-content;
+
+    &:hover + .body .user-name {
+        text-decoration: underline;
+    }
+
+    img {
+        width: 56px;
+        height: 56px;
+    }
+}
+
+.body {
+    margin-left: 12px;
+}
+
+.video-info {
+    margin-right: 120px;
+}
+
+// User
+.user-info {
+    display: inline-flex;
+    align-items: center;
+
+    &:hover.user-name {
+        text-decoration: underline;
+    }
+}
+
+.check {
+    font-size: 1.4rem;
+    color: var(--check-color);
+    margin-left: 4px;
+}
+
+.small-avatar {
+    display: none;
+    width: 40px;
+    height: 40px;
+    margin-right: 12px;
+}
+
+.user-name {
+    line-height: 25px;
+    margin-right: 4px;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.full-name {
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+.follow-btn {
+    position: absolute;
+    top: 28px;
+    right: 0;
+}
+
+.description {
+    margin: 2px 0;
+    line-height: 22px;
+}
+
+.music-info {
+    display: inline-block;
+    margin-left: 0;
+    margin-top: 3px;
+    font-weight: 600;
+    line-height: 22px;
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+    .icon-music {
+        display: inline-block;
+        margin-right: 4px;
+        transform: translateY(2px);
+    }
+}
+
+.video-player {
+    display: flex;
+    align-items: flex-end;
+    margin-top: 10px;
+}
