@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle, faMusic } from '@fortawesome/free-solid-svg-icons';
 import Image from '~/components/Image';
 import styles from './VideoModal.module.scss';
+import VideoPlayer from '../VideoPlayer';
 
 const cx = classNames.bind(styles);
 
@@ -32,40 +33,46 @@ function VideoModal(props) {
     }, []);
 
     return (
-        <div className={cx('content-container')}>
-            <header className={cx('video-info')}>
-                <div className={cx('info__account')}>
-                    <Link to={'/@' + userName}>
-                        <div style={{ display: 'flex', alignItems: 'center' }} onClick={handleClose}>
-                            <Image className={cx('avatar')} src={avatarUrl} />
+        <div className={cx('wrapper')}>
+            <div className={cx('video-container')}>
+                <VideoPlayer {...props} />
+            </div>
 
-                            <div className={cx('body')}>
-                                <p className={cx('username')}>
-                                    {userName}
-                                    {tick && <FontAwesomeIcon className={cx('check')} icon={faCheckCircle} />}
-                                </p>
-                                <p className={cx('fullname')}>
-                                    {firstName} {lastName} · {createdAt?.slice(0, 10)}
-                                </p>
+            <div className={cx('content-container')}>
+                <header className={cx('video-info')}>
+                    <div className={cx('info__account')}>
+                        <Link to={'/@' + userName}>
+                            <div style={{ display: 'flex', alignItems: 'center' }} onClick={handleClose}>
+                                <Image className={cx('avatar')} src={avatarUrl} />
+
+                                <div className={cx('body')}>
+                                    <p className={cx('username')}>
+                                        {userName}
+                                        {tick && <FontAwesomeIcon className={cx('check')} icon={faCheckCircle} />}
+                                    </p>
+                                    <p className={cx('fullname')}>
+                                        {firstName} {lastName} · {createdAt?.slice(0, 10)}
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                    </Link>
-                </div>
+                        </Link>
+                    </div>
 
-                <p className={cx('description')}>
-                    {/* <HashtagFilter onCloseModal={handleClose}>{description}</HashtagFilter> */}
-                </p>
-                <Link to={'/music'} className={cx('music')} target="_blank">
-                    <FontAwesomeIcon className={cx('icon-music')} icon={faMusic} />
-                    {musicInfo || `Nhạc nền - ${firstName} ${lastName}`}
-                </Link>
-            </header>
+                    <p className={cx('description')}>
+                        {/* <HashtagFilter onCloseModal={handleClose}>{description}</HashtagFilter> */}
+                    </p>
+                    <Link to={'/music'} className={cx('music')} target="_blank">
+                        <FontAwesomeIcon className={cx('icon-music')} icon={faMusic} />
+                        {musicInfo || `Nhạc nền - ${firstName} ${lastName}`}
+                    </Link>
+                </header>
+            </div>
         </div>
     );
 }
 
 VideoModal.propTypes = {
-    props: PropTypes.object.isRequired,
+    props: PropTypes.object,
 };
 
 export default VideoModal;

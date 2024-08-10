@@ -115,6 +115,11 @@
         transform: rotate(-90deg);
         opacity: 0;
     }
+
+    .volume-icon {
+        font-size: 2rem;
+        color: var(--white);
+    }
 }
 
 .volume-control {

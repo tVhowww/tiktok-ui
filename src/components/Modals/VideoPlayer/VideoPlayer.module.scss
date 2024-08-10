@@ -1,0 +1,265 @@
+.video-player {
+    height: 100%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+.video__background {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 10%;
+    height: 10%;
+    filter: blur(2px);
+    transform: scale(11);
+    opacity: 0.3;
+    background: center center / cover no-repeat;
+}
+.video__space {
+    height: 100%;
+    background-color: var(--background-gray-color-06);
+    position: relative;
+    z-index: 1;
+
+    img,
+    video {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    video {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    img.hidden {
+        visibility: hidden;
+    }
+}
+
+// Video control
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+    position: absolute;
+    z-index: 2;
+    color: white;
+    background-color: rgba(84, 84, 84, 0.5);
+    transition: opacity 0.3s ease 0s;
+
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+.close-btn {
+    left: 20px;
+    top: 20px;
+}
+.report-btn {
+    top: 20px;
+    right: 20px;
+    width: initial;
+    padding: 10px 16px;
+    font-weight: 600;
+    font-size: 1.4rem;
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+.prev-btn,
+.next-btn {
+    right: 20px;
+}
+
+.prev-btn {
+    top: calc(50% - 48px);
+    transform: rotate(180deg);
+}
+.next-btn {
+    top: calc(50% + 8px);
+}
+
+// Volume container
+.volume-container {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    z-index: 2;
+    right: 20px;
+    bottom: 20px;
+    transform-origin: calc(100% - 20px);
+    transform: rotate(90deg);
+
+    &:hover {
+        .volume-control {
+            display: flex;
+        }
+    }
+
+    .volume-btn {
+        position: relative;
+        transform: rotate(-90deg);
+        animation: play-icon-effect 0.8s;
+    }
+}
+.volume-control {
+    display: none;
+    align-items: center;
+    transform: rotate(180deg);
+    width: 100px;
+    height: 28px;
+    padding: 0 12px;
+    margin: 0 8px;
+    border-radius: 32px;
+    background-color: rgba(84, 84, 84, 0.5);
+
+    position: relative;
+    animation: play-icon-effect 0.3s;
+
+    * {
+        cursor: pointer;
+    }
+
+    .volume-background {
+        position: relative;
+        width: 100%;
+        height: 4px;
+        border-radius: 100px;
+        background-color: rgba(255, 255, 255, 0.34);
+    }
+
+    .volume-bar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 50%;
+        border-radius: inherit;
+        background-color: white;
+
+        .volume-dot {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: inherit;
+            transform: translate(100%, -50%);
+        }
+    }
+
+    input {
+        position: absolute;
+        left: 12px;
+        right: 12px;
+        height: 4px;
+        opacity: 0;
+    }
+}
+
+.play-icon {
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    animation: play-icon-effect 0.3s;
+    pointer-events: none;
+}
+
+.loading {
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    pointer-events: none;
+}
+
+@keyframes play-icon-effect {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+// Progress container
+.progress-container {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    z-index: 1;
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    width: calc(100% - 160px);
+    max-width: 56.25vh;
+    padding: 0 16px;
+
+    &:hover .progress-control {
+        transform: scaleY(1);
+
+        .progress-dot {
+            opacity: 1;
+        }
+    }
+}
+
+.progress-control {
+    flex-grow: 1;
+    height: 6px;
+    background-color: rgba(255, 255, 255, 0.34);
+    position: relative;
+    transform: scaleY(0.667);
+
+    input {
+        position: absolute;
+        left: -2px;
+        right: -2px;
+        top: -5px;
+        cursor: pointer;
+        opacity: 0;
+    }
+}
+
+.progress-bar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: var(--progress-data);
+    background-color: white;
+}
+
+.progress-dot {
+    position: inherit;
+    right: 0;
+    top: 50%;
+    transform: translate(calc(100% - var(--progress-data)), -50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: white;
+    opacity: 0;
+}
+
+.progress-time {
+    flex: 0 0 88px;
+    margin-left: 12px;
+    text-align: right;
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
